@@ -16,9 +16,12 @@ if (! $ARGV[0]) {
 if ("$ARGV[0]" eq "-") {
     @lines = <STDIN>;
 } elsif ( -e $ARGV[0] ) {
-    open my $ifh, '<', $ARGV[0];
+    open my $ifh, '<', $ARGV[0] or die "Unable to open file $ARGV[0]: $!\n";
     @lines = <$ifh>;
     close $ifh;
+} else {
+    print "Unable to open file: $ARGV[0]\n";
+    exit 2;
 }
 
 chomp @lines;
