@@ -9,7 +9,7 @@ my @lines;
 
 # Read from stdn in if filename is -, otherwise open file
 if (! $ARGV[0]) {
-    print "Usage: $0 <filename>\n";
+    print "Usage: $0 <filename or - for STDIN>\n";
     exit 2;
 }
 
