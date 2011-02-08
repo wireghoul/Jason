@@ -30,10 +30,9 @@ foreach my $password (@lines) {
     my $l_count = 0;
     my $r_count = 0;
     foreach my $char (@pwchars) {
-        # Need to use instring search function to handle regex metachars
-        if ($l_hand =~ /$char/) {
+        if (index($l_hand,$char) > 0) {
             $l_count++;
-        } elsif ($r_hand =~ /$char/) {
+        } elsif (index($r_hand,$char) > 0) {
             $r_count++;
         }
     }
