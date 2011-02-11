@@ -37,5 +37,8 @@ foreach my $password (@lines) {
         }
     }
     my $total = length($password);
-    print $l_count/$total - $r_count/$total."\t$password\n";
+    # Skip blank passwords
+    if ($total) {
+        print $l_count/$total - $r_count/$total."\t$password\n";
+    }
 }
