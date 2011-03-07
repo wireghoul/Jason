@@ -5,6 +5,7 @@
 use strict;
 use warnings;
 
+my @lines;
 # Replacement map
 my %char;
 $char{'0'} = [ '1','2','3','4','5','6','7','8','9' ];
@@ -19,12 +20,21 @@ $char{'8'} = [ '0','1','2','3','4','5','6','7','9' ];
 $char{'9'} = [ '0','1','2','3','4','5','6','7','8' ];
 
 if (! $ARGV[0]) {
-    print "Usage $0 <password>\n";
-    exit 2;
+    print "Usage $0 <password, - or filename>\n";
+} elsif ($ARGV[0] eq '-') {
+    @lines = <STDIN>;
+} elsif ( -e $ARGV[0] ) {
+    open my $ifh, '<', $ARGV[0];
+    @lines = <$ifh>;
+    close $ifh;
+} else {
+    push @lines, $ARGV[0];
 }
-
-print "$ARGV[0]\n";
-&munge($ARGV[0],0);
+chomp(@lines);
+foreach my $password (@lines) {
+    &munge($password,0);
+    print "$password\n";
+}
 
 # Recursive iterator function
 sub munge {
