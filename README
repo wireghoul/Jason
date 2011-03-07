@@ -68,8 +68,12 @@ A tool suite for butchering password lists.
 
 * lensort.pl - Sorts passwords into new files by length
 * handiness.pl - Calculates left/right hand usage for passwords
+* iterate.pl - Enumerates all combinations of numeric values in password
 
 ===] lensort [===
 
 
 ===] handiness [===
+
+
+===] iterate [===
