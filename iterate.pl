@@ -32,7 +32,7 @@ if (! $ARGV[0]) {
 }
 chomp(@lines);
 foreach my $password (@lines) {
-	print "$password\n";
+    print "$password\n";
     &munge($password,0);
 }
 
