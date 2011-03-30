@@ -32,8 +32,8 @@ if (! $ARGV[0]) {
 }
 chomp(@lines);
 foreach my $password (@lines) {
+	print "$password\n";
     &munge($password,0);
-    print "$password\n";
 }
 
 # Recursive iterator function
